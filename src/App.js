@@ -7,6 +7,9 @@ import Nombre from "./components/nombre"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import ProgressBar from "react-bootstrap/ProgressBar";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,7 +30,7 @@ class App extends Component {
     const user = await axios.get("https://randomuser.me/api/");
     console.log(user.data.results[0].picture)
     this.setState({
-      userPic: user.data.results[0].picture.large,
+      userPic: user.data.results[0].picture.medium,
       pictureLoaded: true
     })
   }
@@ -37,7 +40,7 @@ class App extends Component {
   return (
     <div className="App">
       <header>
-        <div className="container">
+        <div className="contHeader">
           <h1 className="titleHeader">Título de formulario</h1>
           <FontAwesomeIcon icon="clipboard" size="5x" className="faIcon"></FontAwesomeIcon>
         </div>
@@ -47,12 +50,17 @@ class App extends Component {
         </p>
       </header>
       <ProgressBar now={33.3}/>
-      <section>
-        {this.state.pictureLoaded ? <img src={this.state.userPic} alt="user picture"></img> : <p></p>}
-        
-      </section>
 
-      <Route path="/" render= {(props) => ( <Nombre/>)} />
+      <Container>
+        <Row>
+          <Col xs={3}>
+            {this.state.pictureLoaded ? <img src={this.state.userPic} alt="user picture" className="userPic"></img> : <p></p>}
+          </Col>
+          <Col>
+            <Route path="/" render= {(props) => ( <Nombre/>)} />
+          </Col>
+        </Row>
+      </Container>      
     </div>
   );
 }

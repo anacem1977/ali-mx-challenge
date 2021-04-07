@@ -1,5 +1,9 @@
+div.App {
+  border: 1px solid grey;
+  background-color: #fafafa;
+}
+
 body {
-  background-color: #f0f0f0;
   max-width: 400px;
   margin-left: 10%;
 }
@@ -10,7 +14,7 @@ header {
   margin-top: 2rem;
 }
 
-.container {
+.contHeader {
   display: flex;
   justify-content: space-between;
   padding-bottom: 2rem;
@@ -23,7 +27,7 @@ header {
 .titleHeader {
   text-align: left;
   align-self: start;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .subtitleHeader {
@@ -32,4 +36,33 @@ header {
 
 .progress-bar {
   background-color: #f93e81;
+}
+
+div.container {
+  margin-top: 3rem;
+  justify-content: space-between;
+  padding: 0
+}
+
+.userPic {
+  padding: 3px;
+  border: 3px solid #F36fdd;
+  border-radius: 35%
+}
+
+.nombre, input.form-control {
+  background-color: #f0f0f0;
+  padding-bottom: 1rem;
+}
+
+input.form-control {
+ height: 4rem;
+ width: 90%;
+ margin: 0 auto;
+}
+
+.titleComp {
+  text-align: left;
+  font-size: 24px;
+  padding: 1rem;
 }

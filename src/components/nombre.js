@@ -1,14 +1,28 @@
 import React, {Component} from 'react';
+import { Form } from 'react-bootstrap';
 
 class Nombre extends Component {
 
 
 render () {
     return (
-        <div className="subtitle">
+        <div className="nombre">
             <div>
-                <h3>Fun Facts</h3>
-                <p>My high-school nickname is Rana (Frog) and my friends still call me that! I have two cats and a dog. I enjoy crochetting and I absolutely love 80's music!. My favorite day-time drink is coffee and later in the day, a cold beer.</p>
+                <h1 className="titleComp">¿Cuál es tu nombre?</h1>
+                <Form>
+                    <Form.Group controlId="name1">
+                        <Form.Control type="text" placeholder="Nombre" size="lg"/>
+                    </Form.Group>
+                    <Form.Group controlId="name2">
+                        <Form.Control type="text" placeholder="Segundo nombre" size="lg"/>
+                    </Form.Group>
+                    <Form.Group controlId="lastName1">
+                        <Form.Control type="text" placeholder="Apellido paterno" size="lg"/>
+                    </Form.Group>
+                    <Form.Group controlId="lastName2">
+                        <Form.Control type="text" placeholder="Apellido materno" size="lg"/>
+                    </Form.Group>
+                </Form>
             </div>
 
         </div>
