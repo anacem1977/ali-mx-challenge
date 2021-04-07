@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import { Route, Link } from "react-router-dom";
 import { Form } from 'react-bootstrap';
+import FechaDeNacimiento from "./fechaNacimiento"
 
 class Nombre extends Component {
     constructor(props) {
@@ -10,7 +12,8 @@ class Nombre extends Component {
             nombre2: "",
             apellido1: "",
             apellido2: "",
-            captured: false
+            captured: false,
+            finished: false
         }
     }
 
@@ -20,26 +23,23 @@ class Nombre extends Component {
             [event.target.name]: event.target.value,
             captured: true
         })
-        console.log(this.state.nombre1)
-        console.log(this.state.nombre2)
-        console.log(this.state.apellido1)
-        console.log(this.state.apellido2)
-        console.log(this.state.captured)
     }
 
-    captureUserData = async (event) => {
-        event.preventDefault();
-        this.setState({
-          captured: true
-        })
-        console.log(this.state.captured)
-      }
-
+    hitEnter = (event) => {
+        if (event.keyCode === 13) {
+            this.setState({
+                finished: true
+            })
+        }
+    }
 
 render () {
     return (
-        <div className="nombreCompleto">
-            <div>
+        <div className="forma">
+            {this.state.finished ?   
+                <FechaDeNacimiento nombre1={this.state.nombre1} nombre2={this.state.nombre2} apellido1={this.state.apellido1} apellido2={this.state.apellido2} />            
+             :             
+             <div>
                 <h1 className="titleComp">¿Cuál es tu nombre?</h1>
                 <Form>
                     <Form.Group>
@@ -48,7 +48,8 @@ render () {
                             placeholder="Nombre" 
                             size="lg" 
                             name="nombre1" 
-                            onChange={this.handleData}/>
+                            onChange={this.handleData}
+                            autofocus="true"/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Control 
@@ -64,7 +65,8 @@ render () {
                             placeholder="Apellido paterno" 
                             size="lg" 
                             name="apellido1" 
-                            onChange={this.handleData}/>
+                            onChange={this.handleData}
+                            onKeyUp={this.hitEnter}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Control 
@@ -72,17 +74,18 @@ render () {
                             placeholder="Apellido materno" 
                             size="lg" 
                             name="apellido2" 
-                            onChange={this.handleData}/>
+                            onChange={this.handleData}
+                            onKeyUp={this.hitEnter}/>
                     </Form.Group>
                 </Form>
-            </div>
-            {this.state.captured ? 
-                <div className="printData">
-                    <p>{this.state.nombre1} {this.state.nombre2} {this.state.apellido1} {this.state.apellido2}</p>
-                </div> 
-                : <space></space>}
-        </div>
-        
+
+                {this.state.captured ? 
+                    <div className="printData">
+                        <p>{this.state.nombre1} {this.state.nombre2} {this.state.apellido1} {this.state.apellido2}</p>
+                    </div> 
+                : <space></space> }
+            </div> }
+         </div>
     )
 }
 }

@@ -50,7 +50,7 @@ div.container {
   border-radius: 35%
 }
 
-.nombreCompleto, input.form-control {
+.forma, input.form-control {
   background-color: #f0f0f0;
   padding-bottom: 1rem;
 }
