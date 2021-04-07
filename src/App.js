@@ -28,7 +28,6 @@ class App extends Component {
 
   componentDidMount = async () => {
     const user = await axios.get("https://randomuser.me/api/");
-    console.log(user.data.results[0].picture)
     this.setState({
       userPic: user.data.results[0].picture.medium,
       pictureLoaded: true
@@ -54,10 +53,10 @@ class App extends Component {
       <Container>
         <Row>
           <Col xs={3}>
-            {this.state.pictureLoaded ? <img src={this.state.userPic} alt="user picture" className="userPic"></img> : <p></p>}
+            {this.state.pictureLoaded ? <img src={this.state.userPic} alt="user" className="userPic"></img> : <p></p>}
           </Col>
           <Col>
-            <Route path="/" render= {(props) => ( <Nombre/>)} />
+            <Route path="/" render= {() => ( <Nombre/>)} />
           </Col>
         </Row>
       </Container>      
