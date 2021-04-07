@@ -11,7 +11,6 @@ class Contacto extends Component {
             captured: false,
             finished: false
         }
-        console.log(props)
     }
 
     handleData = (event) => {
@@ -57,10 +56,22 @@ render () {
                 </Form>
             </div>
             {this.state.captured ? 
+            <div>
                 <div className="printData">
                     <p>Correo electrónico: {this.state.email}</p>
                     <p>Teléfono celular: {this.state.cel} </p>
                 </div> 
+                <div className="forma">
+                    <p>Si tus datos son correctos por favor continuemos</p>
+                    <button type="submit">Iniciar</button>
+                    <div className="printData">
+                        <p>Fecha de Nacimiento: {this.props.dia} {this.props.mes} {this.props.anio}</p>
+                        <p>Correo electrónico: {this.state.email}</p>
+                        <p>Teléfono celular: {this.state.cel} </p>
+                        <p>Nombre: {this.props.user.nombre1} {this.props.user.nombre2} {this.props.user.apellido1} {this.props.user.apellido2}</p>
+                    </div> 
+                </div>
+            </div>
                 : <space></space>}
         </div>
         
