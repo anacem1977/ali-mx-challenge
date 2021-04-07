@@ -13,9 +13,9 @@ import Col from "react-bootstrap/Col";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faClipboard, faClock} from "@fortawesome/free-solid-svg-icons";
+import {faClipboard, faClock, faSmileBeam} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faClipboard, faClock);
+library.add(faClipboard, faClock, faSmileBeam);
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class App extends Component {
   componentDidMount = async () => {
     const user = await axios.get("https://randomuser.me/api/");
     this.setState({
-      userPic: user.data.results[0].picture.medium,
+      userPic: user.data.results[0].picture.large,
       pictureLoaded: true
     })
   }
@@ -52,7 +52,14 @@ class App extends Component {
       <Container>
         <Row>
           <Col xs={3}>
-            {this.state.pictureLoaded ? <img src={this.state.userPic} alt="user" className="userPic"></img> : <p></p>}
+            {this.state.pictureLoaded ? 
+            <div>
+              <div className="circle">
+                <FontAwesomeIcon icon="smile-beam" size="1x" className="badgeIcon"></FontAwesomeIcon>
+              </div>
+              <img src={this.state.userPic} alt="user" className="userPic"></img>
+            </div>
+            : <p></p>}
           </Col>
           <Col xs={9}>
             <Route exact path="/" render= {() => ( <Nombre/>)} />

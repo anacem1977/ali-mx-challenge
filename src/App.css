@@ -43,8 +43,11 @@ div.container {
 .userPic {
   padding: 3px;
   border: 3px solid #F36fdd;
-  border-radius: 35%;
-  margin-left: 1rem;
+  border-radius: 30%;
+  margin: -2rem 0 0 1rem;
+  width: 80px;
+  height: 110px;
+  object-fit: cover;
 }
 
 .forma, input.form-control {
@@ -108,4 +111,17 @@ button.btn {
   margin-left: -5rem;
   border: 1px solid grey;
   border-radius: 5px;
+}
+
+.circle {
+  height: 30px;
+  width: 30px;
+  background-color: #f36fdd;
+  border-radius: 50%;
+  float: right;
+  transform: translate(25px, 85px)
+}
+
+.badgeIcon {
+  transform: translate(8px, 4px);
 }
