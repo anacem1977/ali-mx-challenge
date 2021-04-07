@@ -34,13 +34,13 @@ class FechaDeNacimiento extends Component {
 
 render () {
     return (
-        <div className="forma">
+        <div>
             {this.state.finished ? 
             <Contacto user={this.props} dia={this.state.dia} mes={this.state.mes} anio={this.state.anio}/>
         :             
         <div>
-            <h1 className="titleComp">¿Cuál es tu fecha de Nacimiento?</h1>
-            <Form>
+            <Form className="forma">
+            <h1 className="titleComp">¿Cuál es tu fecha de nacimiento?</h1>
                 <Form.Group>
                     <Form.Control 
                         type="number" 
@@ -75,6 +75,7 @@ render () {
             </div> 
         : <space></space>}
         </div> }
+        <br></br>
     </div>
     )
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import './App.css';
 
 import Nombre from "./components/nombre";
@@ -54,7 +54,7 @@ class App extends Component {
           <Col xs={3}>
             {this.state.pictureLoaded ? <img src={this.state.userPic} alt="user" className="userPic"></img> : <p></p>}
           </Col>
-          <Col>
+          <Col xs={9}>
             <Route exact path="/" render= {() => ( <Nombre/>)} />
           </Col>
         </Row>

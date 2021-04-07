@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Route, Link } from "react-router-dom";
 import { Form } from 'react-bootstrap';
 import FechaDeNacimiento from "./fechaNacimiento"
 
@@ -35,13 +34,13 @@ class Nombre extends Component {
 
 render () {
     return (
-        <div className="forma">
+        <div>
             {this.state.finished ?   
                 <FechaDeNacimiento nombre1={this.state.nombre1} nombre2={this.state.nombre2} apellido1={this.state.apellido1} apellido2={this.state.apellido2} />            
              :             
              <div>
+                <Form className="forma">
                 <h1 className="titleComp">¿Cuál es tu nombre?</h1>
-                <Form>
                     <Form.Group>
                         <Form.Control 
                             type="text" 
@@ -85,6 +84,7 @@ render () {
                     </div> 
                 : <space></space> }
             </div> }
+            <br></br>
          </div>
     )
 }

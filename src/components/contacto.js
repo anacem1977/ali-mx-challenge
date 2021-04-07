@@ -31,10 +31,10 @@ class Contacto extends Component {
 
 render () {
     return (
-        <div className="forma">
+        <div>
             <div>
-                <h1 className="titleComp">Datos de Contacto</h1>
-                <Form>
+                <Form className="forma">
+                <h1 className="titleComp">Datos de contacto</h1>
                     <Form.Group>
                         <Form.Control 
                             type="email" 
@@ -61,10 +61,11 @@ render () {
                     <p>Correo electrónico: {this.state.email}</p>
                     <p>Teléfono celular: {this.state.cel} </p>
                 </div> 
-                <div className="forma">
-                    <p>Si tus datos son correctos por favor continuemos</p>
-                    <button type="submit">Iniciar</button>
-                    <div className="printData">
+                <div>
+                    <br></br>
+                    <p className="final">Si tus datos son correctos por favor continuemos</p>
+                    <button type="submit" className="btn">Iniciar</button>
+                    <div className="printDataFinal">
                         <p>Fecha de Nacimiento: {this.props.dia} {this.props.mes} {this.props.anio}</p>
                         <p>Correo electrónico: {this.state.email}</p>
                         <p>Teléfono celular: {this.state.cel} </p>
