@@ -22,7 +22,8 @@ class App extends Component {
     super(props);
     this.state = {
       userPic:"",
-      pictureLoaded: false
+      pictureLoaded: false,
+      percentage: 0
     }
   }
 
@@ -31,6 +32,12 @@ class App extends Component {
     this.setState({
       userPic: user.data.results[0].picture.large,
       pictureLoaded: true
+    })
+  }
+
+  updatePercentage = (progress) => {
+    this.setState({
+      percentage: progress
     })
   }
 
@@ -47,7 +54,7 @@ class App extends Component {
           <space> </space>En menos de 5 minutos
         </p>
       </header>
-      <ProgressBar now={33.3}/>
+      <ProgressBar now={this.state.percentage}/>
 
       <Container>
         <Row>
@@ -62,7 +69,7 @@ class App extends Component {
             : <p></p>}
           </Col>
           <Col xs={9}>
-            <Route exact path="/" render= {() => ( <Nombre/>)} />
+            <Nombre updatePercentage={this.updatePercentage}/>
           </Col>
         </Row>
       </Container>      

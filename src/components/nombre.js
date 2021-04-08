@@ -22,6 +22,7 @@ class Nombre extends Component {
             [event.target.name]: event.target.value,
             captured: true
         })
+        this.props.updatePercentage(33.3)
     }
 
     hitEnter = (event) => {
@@ -35,8 +36,8 @@ class Nombre extends Component {
 render () {
     return (
         <div>
-            {this.state.finished ?   
-                <FechaDeNacimiento nombre1={this.state.nombre1} nombre2={this.state.nombre2} apellido1={this.state.apellido1} apellido2={this.state.apellido2} />            
+            {this.state.finished ?  
+                <FechaDeNacimiento nombre1={this.state.nombre1} nombre2={this.state.nombre2} apellido1={this.state.apellido1} apellido2={this.state.apellido2} updatePercentage={this.props.updatePercentage}/>        
              :             
              <div>
                 <Form className="forma">
@@ -85,8 +86,10 @@ render () {
                 : <space></space> }
             </div> }
             <br></br>
+            
          </div>
     )
+    
 }
 }
 

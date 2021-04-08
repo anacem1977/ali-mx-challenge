@@ -13,7 +13,6 @@ class FechaDeNacimiento extends Component {
             captured: false,
             finished: false
         }
-        console.log(props)
     }
 
     handleData = (event) => {
@@ -22,6 +21,7 @@ class FechaDeNacimiento extends Component {
             [event.target.name]: event.target.value,
             captured: true
         })
+        this.props.updatePercentage(66.7)
     }
 
     hitEnter = (event) => {
@@ -36,7 +36,7 @@ render () {
     return (
         <div>
             {this.state.finished ? 
-            <Contacto user={this.props} dia={this.state.dia} mes={this.state.mes} anio={this.state.anio}/>
+            <Contacto user={this.props} dia={this.state.dia} mes={this.state.mes} anio={this.state.anio} updatePercentage={this.props.updatePercentage}/>
         :             
         <div>
             <Form className="forma">

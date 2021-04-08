@@ -19,6 +19,7 @@ class Contacto extends Component {
             [event.target.name]: event.target.value,
             captured: true
         })
+        this.props.updatePercentage(100)
     }
 
     hitEnter = (event) => {
