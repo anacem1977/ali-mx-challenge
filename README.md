@@ -43,7 +43,7 @@ A functional progress bar was included as well.
 ---
 
 ## Installation
-+ No special installation required: [Go to App](http://ana-cecilia-maldonado-portfolio.surge.sh)
++ No special installation required: [Go to App](https://main.d3ksdv2ognd5pb.amplifyapp.com)
 
 ---
 
